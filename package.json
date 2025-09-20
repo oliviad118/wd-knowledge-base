@@ -6,6 +6,8 @@
   "scripts": {
     "validate": "node scripts/validate-card.js",
     "validate:all": "node scripts/validate-card.js cards/*.md",
+    "lint:md": "markdownlint *.md cards/*.md .github/*.md",
+    "lint:md:fix": "markdownlint --fix *.md cards/*.md .github/*.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
