@@ -17,12 +17,6 @@ This is a 5-week collaborative project where 8 students will create 80 technical
 3. **Browse GitHub Issues** to find available topics
 4. **Follow the workflow** in CONTRIBUTING.md to create and submit your cards
 
-## 📋 Weekly Requirements
-
-- **2 cards per week** (any combination of sources)
-- **Friday:** First card due by 11:59 PM
-- **Sunday:** Second card due by 11:59 PM
-
 ## 📝 Card Format
 
 See [CONTRIBUTING.md](CONTRIBUTING.md#card-format-specification) for complete format requirements.
@@ -36,7 +30,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md#card-format-specification) for complete fo
 
 ## ✅ Before You Submit
 
-**Required:** Validate your card locally:
+Validate your card locally:
 
 ```bash
 npm install
