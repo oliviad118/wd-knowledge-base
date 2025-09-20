@@ -2,7 +2,8 @@
 
 ## Overview
 
-Beyond the 80 pre-created issues, you can create up to **2 additional issues** per week for modern CSS features found on the [CSS Secret Sauce](https://nerdy.dev/cascading-secret-sauce) page.
+Beyond the 80 pre-created issues, you can create up to **2 additional issues** per week for modern CSS features
+found on the [CSS Secret Sauce](https://nerdy.dev/cascading-secret-sauce) page.
 
 This teaches you the complete GitHub workflow: not just claiming issues, but creating them too!
 
@@ -135,17 +136,21 @@ The :has() selector solves a decades-old limitation in CSS by allowing parent se
 ## Timeline & Limits
 
 ### Weekly Options
+
 Each week you can:
+
 - Take 2 pre-created issues from the issue bank
 - OR take 1 pre-created + create 1 from Secret Sauce  
 - OR create 2 from Secret Sauce (if you prefer modern topics)
 
 ### Requirements
+
 - **Minimum:** 10 cards total over 5 weeks (any combination)
 - **Weekly:** 2 issues per week (Friday & Sunday deadlines)
 - **Maximum Secret Sauce:** Up to 10 (if you create 2 per week)
 
 ### Suggested Approach
+
 - **Week 1**: Start with 2 pre-created issues (learn the process)
 - **Week 2-5**: Mix based on your interests
 - **Smart Strategy**: Claim pre-created early, create Secret Sauce when you find exciting topics

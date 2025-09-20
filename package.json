@@ -20,9 +20,10 @@
   "author": "Cynthia Teeters",
   "license": "MIT",
   "devDependencies": {
-    "gray-matter": "^4.0.3",
     "chalk": "^4.1.2",
-    "glob": "^8.0.0"
+    "glob": "^8.0.0",
+    "gray-matter": "^4.0.3",
+    "markdownlint-cli": "^0.45.0"
   },
   "engines": {
     "node": ">=22.0.0",

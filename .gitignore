@@ -181,7 +181,6 @@ $RECYCLE.BIN/
 .nfs*
 
 # IDE files
-.vscode/
 .idea/
 *.swp
 *.swo

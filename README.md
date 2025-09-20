@@ -4,7 +4,8 @@ A collaborative repository where students create technical reference cards for w
 
 ## 📚 Project Overview
 
-This is a 5-week collaborative project where 8 students will create 80 technical reference cards covering CSS, HTML, accessibility, performance, and responsive design topics.
+This is a 5-week collaborative project where 8 students will create 80 technical reference cards covering CSS, HTML,
+accessibility, performance, and responsive design topics.
 
 **Duration:** 5 weeks
 **Total cards:** 80 (10 per student, 2 per week)
@@ -39,7 +40,7 @@ npm run validate cards/your-card-name.md
 
 ## 📁 Repository Structure
 
-```
+```text
 knowledge-base/
 ├── README.md                    # You are here
 ├── CONTRIBUTING.md              # Complete workflow & requirements
@@ -81,6 +82,7 @@ For Secret Sauce issues, see [CREATE-ISSUE-GUIDE.md](CREATE-ISSUE-GUIDE.md).
 
 ---
 
-**Important:** This README provides a quick overview. For complete instructions, requirements, and workflow details, **always refer to [CONTRIBUTING.md](CONTRIBUTING.md)**.
+**Important:** This README provides a quick overview. For complete instructions, requirements, and workflow details,
+**always refer to [CONTRIBUTING.md](CONTRIBUTING.md)**.
 
-*Last updated: September 20, 2025*
+**Last updated:** September 20, 2025

@@ -23,11 +23,13 @@ This guide explains how to contribute knowledge cards to the WDII CSS Knowledge 
 ### 1. Choose a card topic
 
 #### Option A: Pre-Created Issues
+
 - Browse [open issues](../../issues)
 - Look for issues labeled `unassigned`
 - Choose based on your interest and skill level
 
 #### Option B: Create from Secret Sauce
+
 - Browse [CSS Secret Sauce](https://nerdy.dev/cascading-secret-sauce)
 - Find a modern CSS feature not already covered
 - Create your own issue following CREATE-ISSUE-GUIDE.md
@@ -90,6 +92,7 @@ Fix any errors before submitting your PR.
 `YYYY-MM-DD-topic-name.md`
 
 Examples:
+
 - `2025-01-15-css-box-model.md`
 - `2025-01-16-aria-labels.md`
 - `2025-01-17-responsive-images.md`
@@ -120,6 +123,7 @@ author: Your Name
 ### Required Sections
 
 Every card MUST include:
+
 - **Explanation** of the concept (75-250 words)
 - **"When to Use"** section explaining practical application
 - **Source** link at the end in the correct format
@@ -127,12 +131,14 @@ Every card MUST include:
 ### Source Link Format
 
 End your card with a properly formatted source link:
-```
+
+```markdown
 **Source**: [Descriptive Title](https://approved-url.com/specific-page)
 ```
 
 Example:
-```
+
+```markdown
 **Source**: [MDN: CSS Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model)
 ```
 
@@ -140,7 +146,7 @@ Example:
 
 While the frontmatter requires one primary source, you may reference additional sources:
 
-```
+```markdown
 **Primary Source**: [MDN: CSS Grid](https://developer.mozilla.org/...)
 **Also Referenced**: [Web.dev Grid Patterns](https://web.dev/...), [Chrome DevTools Grid](https://developer.chrome.com/...)
 ```
@@ -173,6 +179,7 @@ While the frontmatter requires one primary source, you may reference additional 
 Only use these actively-maintained sources that teach modern practices:
 
 **Essential sources:**
+
 - developer.mozilla.org (MDN - Gold standard, always current)
 - web.dev (Google's modern web practices)
 - developer.chrome.com (Chrome team, cutting edge)
@@ -181,12 +188,14 @@ Only use these actively-maintained sources that teach modern practices:
 - spec.whatwg.org (WHATWG specs subdomain)
 
 **Important sources:**
+
 - a11yproject.com (Modern accessibility practices)
 - webaim.org (Current accessibility resources)
 - caniuse.com (Browser compatibility data)
 - webkit.org (Safari/WebKit updates)
 
-**Note:** We intentionally exclude sources that may contain outdated practices (like CSS Tricks, W3Schools, etc.) to ensure you learn modern techniques.
+**Note:** We intentionally exclude sources that may contain outdated practices (like CSS Tricks, W3Schools, etc.)
+to ensure you learn modern techniques.
 
 ## Deadlines
 
