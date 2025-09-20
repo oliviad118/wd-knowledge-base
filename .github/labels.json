@@ -27,7 +27,7 @@
   {
     "name": "unassigned",
     "color": "28A745",
-    "description": "Available for claiming by students"
+    "description": "Available for claiming by collaborators"
   },
   {
     "name": "assigned",

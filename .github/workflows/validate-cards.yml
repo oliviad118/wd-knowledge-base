@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check for deletions (students only)
+      - name: Check for deletions (collaborators only)
         id: check-deletions
         uses: actions/github-script@v7
         with:
@@ -74,10 +74,10 @@ jobs:
                   owner,
                   repo,
                   issue_number: number,
-                  body: `## ❌ Card Deletion Not Permitted\n\nStudents cannot delete existing cards. Please restore the following files:\n${deletedList}\n\n**Action Required:** Restore the deleted files and push new commits to update this PR.`
+                  body: `## ❌ Card Deletion Not Permitted\n\nCollaborators cannot delete existing cards. Please restore the following files:\n${deletedList}\n\n**Action Required:** Restore the deleted files and push new commits to update this PR.`
                 });
 
-                core.setFailed('Students cannot delete existing cards');
+                core.setFailed('Collaborators cannot delete existing cards');
                 return;
               }
             }

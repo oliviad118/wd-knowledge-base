@@ -1,10 +1,10 @@
 # Web Development II Knowledge Base
 
-A collaborative repository where students create technical reference cards for web development concepts.
+A collaborative repository where collaborators create technical reference cards for web development concepts.
 
 ## 📚 Project Overview
 
-This is a 5-week collaborative project where 8 students will create 80 technical reference cards covering CSS, HTML,
+This is a 5-week collaborative project where 8 collaborators will create 80 technical reference cards covering CSS, HTML,
 accessibility, performance, and responsive design topics.
 
 **Duration:** 5 weeks

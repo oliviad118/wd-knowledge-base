@@ -34,6 +34,18 @@ This approach excels for responsive design: redefine the template in media queri
 .aside { grid-area: aside; }
 .footer { grid-area: footer; }
 
+/* Tablet: Side-by-side content */
+@media (max-width: 1024px) {
+  .page-layout {
+    grid-template-columns: 1fr 250px;
+    grid-template-areas:
+      "header header"
+      "main   aside"
+      "nav    aside"
+      "footer footer";
+  }
+}
+
 /* Mobile: Stack everything */
 @media (max-width: 768px) {
   .page-layout {
@@ -45,6 +57,14 @@ This approach excels for responsive design: redefine the template in media queri
       "aside"
       "footer";
   }
+}
+
+/* Modern grid features */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-areas: none; /* Let items flow naturally */
+  gap: 2rem;
 }
 ```
 

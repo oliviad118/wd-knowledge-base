@@ -1,7 +1,7 @@
 ---
 title: CSS Custom Properties - Dynamic Theming with CSS Variables
 date: 2025-01-20
-category: performance
+category: css-fundamentals
 difficulty: intermediate
 source: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 author: instructor

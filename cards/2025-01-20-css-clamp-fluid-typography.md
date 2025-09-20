@@ -42,6 +42,6 @@ p {
 
 ## When to Use
 
-Use clamp() for typography, spacing, and container widths. It's perfect for fluid, responsive design without breakpoints. Supported in all modern browsers (2020+).
+Use clamp() for typography, spacing, and container widths. It's perfect for fluid, responsive design without breakpoints. Universal browser support across all modern browsers.
 
 **Source**: [MDN: clamp() Function](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)

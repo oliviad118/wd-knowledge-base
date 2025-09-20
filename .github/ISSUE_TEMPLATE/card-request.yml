@@ -32,7 +32,7 @@ body:
     id: difficulty
     attributes:
       label: Difficulty Level
-      description: How challenging is this topic for students?
+      description: How challenging is this topic for collaborators?
       options:
         - starter
         - intermediate
