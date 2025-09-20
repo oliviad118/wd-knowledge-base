@@ -1,0 +1,269 @@
+name: Validate Cards
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+    paths:
+      - 'cards/**/*.md'
+
+jobs:
+  validate-cards:
+    runs-on: ubuntu-latest
+    name: Validate Knowledge Cards
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for deletions (students only)
+        id: check-deletions
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            const pr = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number: number
+            });
+
+            const author = pr.data.user.login;
+            console.log(`PR author: ${author}`);
+
+            // Get list of files changed in the PR
+            const files = await github.rest.pulls.listFiles({
+              owner,
+              repo,
+              pull_number: number
+            });
+
+            // Check for deleted files in cards/ directory
+            const deletedCardFiles = files.data.filter(file =>
+              file.status === 'removed' && file.filename.startsWith('cards/') && file.filename.endsWith('.md')
+            );
+
+            if (deletedCardFiles.length > 0) {
+              if (author === 'cynthiateeters') {
+                console.log('ℹ️ Instructor PR - deletions permitted');
+                core.setOutput('instructor-deletion', 'true');
+
+                // Post info comment for instructor deletions
+                const deletedList = deletedCardFiles.map(f => `- \`${f.filename}\``).join('\n');
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: number,
+                  body: `## ℹ️ Instructor Deletions Detected\n\nThe following card files were deleted:\n${deletedList}\n\n*Note: This is permitted for instructor accounts.*`
+                });
+              } else {
+                console.log('❌ Student deletions detected - failing check');
+                const deletedList = deletedCardFiles.map(f => `- \`${f.filename}\``).join('\n');
+
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: number,
+                  body: `## ❌ Card Deletion Not Permitted\n\nStudents cannot delete existing cards. Please restore the following files:\n${deletedList}\n\n**Action Required:** Restore the deleted files and push new commits to update this PR.`
+                });
+
+                core.setFailed('Students cannot delete existing cards');
+                return;
+              }
+            }
+
+            core.setOutput('deletions-check', 'passed');
+
+      - name: Get changed card files
+        id: changed-files
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+
+            // Get list of files changed in the PR
+            const files = await github.rest.pulls.listFiles({
+              owner,
+              repo,
+              pull_number: number
+            });
+
+            // Filter for .md files in cards/ directory that are added or modified
+            const changedCardFiles = files.data
+              .filter(file =>
+                (file.status === 'added' || file.status === 'modified') &&
+                file.filename.startsWith('cards/') &&
+                file.filename.endsWith('.md')
+              )
+              .map(file => file.filename);
+
+            console.log('Changed card files:', changedCardFiles);
+            core.setOutput('files', changedCardFiles.join(' '));
+            core.setOutput('count', changedCardFiles.length);
+
+      - name: Validate changed cards
+        id: validate
+        if: steps.changed-files.outputs.count > 0
+        run: |
+          FILES="${{ steps.changed-files.outputs.files }}"
+
+          if [ -z "$FILES" ]; then
+            echo "No card files to validate"
+            echo "validation-results=no-files" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "Validating files: $FILES"
+
+          # Create temp files for results
+          PASSED_FILE=$(mktemp)
+          FAILED_FILE=$(mktemp)
+
+          # Initialize result tracking
+          OVERALL_SUCCESS=true
+
+          # Validate each file
+          for file in $FILES; do
+            echo "Validating $file..."
+            if node scripts/validate-card.js "$file"; then
+              echo "✅ $file" >> "$PASSED_FILE"
+              echo "PASSED: $file"
+            else
+              echo "❌ $file" >> "$FAILED_FILE"
+              echo "FAILED: $file"
+              OVERALL_SUCCESS=false
+            fi
+          done
+
+          # Read results
+          PASSED_FILES=$(cat "$PASSED_FILE" || echo "")
+          FAILED_FILES=$(cat "$FAILED_FILE" || echo "")
+
+          # Save results to outputs
+          {
+            echo "passed-files<<EOF"
+            echo "$PASSED_FILES"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+          {
+            echo "failed-files<<EOF"
+            echo "$FAILED_FILES"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+          echo "overall-success=$OVERALL_SUCCESS" >> $GITHUB_OUTPUT
+
+          # Clean up temp files
+          rm -f "$PASSED_FILE" "$FAILED_FILE"
+
+          # Exit with error if any validations failed
+          if [ "$OVERALL_SUCCESS" = "false" ]; then
+            echo "Some card validations failed"
+            exit 1
+          fi
+
+      - name: Get detailed validation errors
+        id: get-errors
+        if: steps.validate.outputs.overall-success == 'false'
+        run: |
+          FILES="${{ steps.changed-files.outputs.files }}"
+          ERROR_DETAILS=""
+
+          for file in $FILES; do
+            echo "Getting detailed errors for $file..."
+            if ! node scripts/validate-card.js "$file" 2>&1; then
+              # Capture the validation output for this file
+              VALIDATION_OUTPUT=$(node scripts/validate-card.js "$file" 2>&1 || true)
+              # Extract meaningful error lines (skip ANSI color codes and generic messages)
+              CLEAN_OUTPUT=$(echo "$VALIDATION_OUTPUT" | sed 's/\x1b\[[0-9;]*m//g' | grep -E "(Missing|Word count|Invalid|Error)" || echo "Validation failed")
+              ERROR_DETAILS="${ERROR_DETAILS}
+          - \`${file}\`
+            $(echo "$CLEAN_OUTPUT" | sed 's/^/  - /' || echo "  - Validation failed")"
+            fi
+          done
+
+          {
+            echo "error-details<<EOF"
+            echo "$ERROR_DETAILS"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Comment on PR with results
+        if: steps.changed-files.outputs.count > 0
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            const passedFiles = `${{ steps.validate.outputs.passed-files }}`;
+            const failedFiles = `${{ steps.validate.outputs.failed-files }}`;
+            const errorDetails = `${{ steps.get-errors.outputs.error-details }}`;
+            const overallSuccess = `${{ steps.validate.outputs.overall-success }}`;
+
+            let comment = '## 📋 Card Validation Results\n\n';
+
+            // Add passed files section
+            if (passedFiles.trim()) {
+              comment += '### ✅ Passed Validation\n';
+              passedFiles.trim().split('\n').forEach(line => {
+                if (line.trim()) {
+                  const filename = line.replace('✅ ', '');
+                  comment += `- \`${filename}\`\n`;
+                }
+              });
+              comment += '\n';
+            }
+
+            // Add failed files section
+            if (failedFiles.trim()) {
+              comment += '### ❌ Failed Validation\n';
+              if (errorDetails.trim()) {
+                comment += errorDetails.trim() + '\n\n';
+              } else {
+                failedFiles.trim().split('\n').forEach(line => {
+                  if (line.trim()) {
+                    const filename = line.replace('❌ ', '');
+                    comment += `- \`${filename}\`\n`;
+                  }
+                });
+                comment += '\n';
+              }
+              comment += '**Action Required:** Fix the issues above and push new commits to update this PR.\n';
+            }
+
+            // Add summary
+            if (overallSuccess === 'true') {
+              comment += '🎉 All cards passed validation!';
+            }
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: number,
+              body: comment
+            });
+
+      - name: Set final status
+        if: always()
+        run: |
+          if [ "${{ steps.check-deletions.outputs.deletions-check }}" != "passed" ]; then
+            echo "❌ Deletions check failed"
+            exit 1
+          fi
+
+          if [ "${{ steps.changed-files.outputs.count }}" -gt 0 ] && [ "${{ steps.validate.outputs.overall-success }}" != "true" ]; then
+            echo "❌ Card validation failed"
+            exit 1
+          fi
+
+          echo "✅ All checks passed"

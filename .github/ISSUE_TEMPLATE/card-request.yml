@@ -1,0 +1,109 @@
+name: Card Request
+description: Request a new note card for the Web Development II collection
+title: "[CARD] "
+labels: ["card-needed", "unassigned"]
+assignees: []
+
+body:
+  - type: input
+    id: card-title
+    attributes:
+      label: Card Title
+      description: Brief, descriptive title for the concept (e.g., "CSS Box Model", "ARIA Labels")
+      placeholder: "CSS Flexbox Alignment"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which category does this card belong to?
+      options:
+        - css-fundamentals
+        - css-layout
+        - accessibility
+        - performance
+        - responsive-design
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty Level
+      description: How challenging is this topic for students?
+      options:
+        - starter
+        - intermediate
+        - advanced
+    validations:
+      required: true
+
+  - type: textarea
+    id: concept-description
+    attributes:
+      label: Concept Description
+      description: Brief explanation of what this card should cover
+      placeholder: |
+        This card should explain:
+        - The main concept and its purpose
+        - Key properties or attributes
+        - Common use cases
+        - Best practices
+    validations:
+      required: true
+
+  - type: textarea
+    id: example-requirements
+    attributes:
+      label: Example Requirements
+      description: What kind of code example should be included?
+      placeholder: |
+        The code example should demonstrate:
+        - Basic syntax
+        - Practical implementation
+        - Common patterns
+        - Real-world usage
+    validations:
+      required: true
+
+  - type: input
+    id: suggested-source
+    attributes:
+      label: Suggested Authoritative Source
+      description: Link to MDN, W3C, web.dev, or other approved source
+      placeholder: "https://developer.mozilla.org/en-US/docs/Web/CSS/..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: related-concepts
+    attributes:
+      label: Related Concepts
+      description: List concepts that connect to this topic
+      placeholder: |
+        - CSS Grid (for layout comparison)
+        - CSS positioning (prerequisite knowledge)
+        - Responsive design (practical application)
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: This card will be considered complete when it includes:
+      options:
+        - label: 75-250 word explanation of the concept
+          required: true
+        - label: Working code example with proper syntax highlighting
+          required: true
+        - label: "When to use" section with practical context
+          required: true
+        - label: Link to authoritative source (MDN, W3C, web.dev, etc.)
+          required: true
+        - label: Proper frontmatter with all required fields
+          required: true
+        - label: File follows naming convention (YYYY-MM-DD-descriptive-name.md)
+          required: true

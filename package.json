@@ -1,0 +1,31 @@
+{
+  "name": "wdii-note-cards",
+  "version": "1.0.0",
+  "description": "Collaborative note cards repository for Web Development II",
+  "main": "index.js",
+  "scripts": {
+    "validate": "node scripts/validate-card.js",
+    "validate:all": "node scripts/validate-card.js cards/*.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web-development",
+    "education",
+    "collaborative",
+    "note-cards",
+    "css",
+    "html",
+    "accessibility"
+  ],
+  "author": "Cynthia Teeters",
+  "license": "MIT",
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "chalk": "^4.1.2",
+    "glob": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=9.0.0"
+  }
+}

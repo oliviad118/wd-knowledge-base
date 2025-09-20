@@ -1,0 +1,102 @@
+[
+  {
+    "name": "css-fundamentals",
+    "color": "0052CC",
+    "description": "Basic CSS concepts and properties"
+  },
+  {
+    "name": "css-layout",
+    "color": "0066FF",
+    "description": "Layout systems (Flexbox, Grid, positioning)"
+  },
+  {
+    "name": "accessibility",
+    "color": "003D82",
+    "description": "WCAG compliance and inclusive design"
+  },
+  {
+    "name": "performance",
+    "color": "0047AB",
+    "description": "Optimization and Core Web Vitals"
+  },
+  {
+    "name": "responsive-design",
+    "color": "004C99",
+    "description": "Multi-device and adaptive layouts"
+  },
+  {
+    "name": "unassigned",
+    "color": "28A745",
+    "description": "Available for claiming by students"
+  },
+  {
+    "name": "assigned",
+    "color": "FFC107",
+    "description": "Student claimed, not yet started"
+  },
+  {
+    "name": "in-progress",
+    "color": "17A2B8",
+    "description": "Student actively working on this card"
+  },
+  {
+    "name": "ready-for-review",
+    "color": "6F42C1",
+    "description": "Awaiting peer review"
+  },
+  {
+    "name": "changes-requested",
+    "color": "DC3545",
+    "description": "Needs revisions based on feedback"
+  },
+  {
+    "name": "approved",
+    "color": "28A745",
+    "description": "Ready to merge"
+  },
+  {
+    "name": "starter",
+    "color": "E1BEE7",
+    "description": "Beginner friendly concepts"
+  },
+  {
+    "name": "intermediate",
+    "color": "BA68C8",
+    "description": "Moderate complexity topics"
+  },
+  {
+    "name": "advanced",
+    "color": "8E24AA",
+    "description": "Challenging concepts requiring experience"
+  },
+  {
+    "name": "core",
+    "color": "FF6B35",
+    "description": "Essential topics for course curriculum"
+  },
+  {
+    "name": "recommended",
+    "color": "FF8F00",
+    "description": "Important additions to knowledge base"
+  },
+  {
+    "name": "bonus",
+    "color": "FFB74D",
+    "description": "Optional enhancements and advanced topics"
+  },
+  {
+    "name": "card-needed",
+    "color": "D73A49",
+    "description": "Topic identified for card creation"
+  },
+  {
+    "name": "duplicate",
+    "color": "CFD3D7",
+    "description": "Topic already covered or in progress"
+  },
+  {
+    "name": "help-wanted",
+    "color": "159818",
+    "description": "Instructor assistance needed"
+  }
+]
