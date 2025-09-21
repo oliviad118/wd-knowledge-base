@@ -9,7 +9,7 @@ author: instructor
 
 # ARIA Live Regions: Announcing Dynamic Content Changes
 
-Live regions announce content changes to screen reader users without moving focus. The `aria-live` attribute has three values: `off` (default), `polite` (waits for pause), and `assertive` (interrupts immediately). `aria-atomic="true"` announces the entire region, while `false` announces only changes. Common patterns include status messages, form validation, and progress updates.
+Live regions announce content changes to screen reader users without moving focus. The `aria-live` attribute has three values: `off` (default), `polite` (waits for pause), and `assertive` (interrupts immediately). `aria-atomic="true"` announces the entire region, while `false` announces only changes. Use `aria-relevant` to control what types of changes are announced: "additions", "removals", "text", or "all". Common patterns include status messages, form validation, and progress updates.
 
 Role attributes provide semantic shortcuts: `role="status"` equals `aria-live="polite"`, while `role="alert"` equals `aria-live="assertive"`. Live regions must exist in the DOM before content changes for reliable announcement. Overuse causes announcement fatigue—reserve for truly important updates.
 
@@ -52,9 +52,14 @@ Role attributes provide semantic shortcuts: `role="status"` equals `aria-live="p
   <span class="error-alert">Error: Email format invalid</span>
 </div>
 
-<!-- Progress announcements -->
-<div aria-live="polite" aria-atomic="true" class="sr-only">
+<!-- Progress announcements with relevance control -->
+<div aria-live="polite" aria-atomic="true" aria-relevant="text" class="sr-only">
   <span>Processing: 75% complete</span>
+</div>
+
+<!-- Shopping cart updates -->
+<div aria-live="polite" aria-relevant="additions removals">
+  <p>Items in cart: <span id="cart-count">3</span></p>
 </div>
 ```
 

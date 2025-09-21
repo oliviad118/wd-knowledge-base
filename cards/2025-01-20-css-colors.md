@@ -9,7 +9,7 @@ author: instructor
 
 # CSS Colors: hex, rgb, hsl, and Modern Color Spaces
 
-CSS offers multiple color formats, each with unique advantages. **Hexadecimal** (#RRGGBB) is compact but hard to read. **RGB** (red, green, blue) uses familiar 0-255 values. **HSL** (hue, saturation, lightness) is most intuitive for creating color variations—adjust lightness for tints/shades, saturation for intensity. Modern formats include **oklch** for perceptually uniform colors and **color-mix()** for dynamic blending.
+CSS offers multiple color formats, each with unique advantages. **Hexadecimal** (#RRGGBB) is compact but hard to read. **RGB** (red, green, blue) uses familiar 0-255 values. **HSL** (hue, saturation, lightness) is most intuitive for creating color variations—adjust lightness for tints/shades, saturation for intensity. Modern formats include **oklch** for perceptually uniform colors, **color-mix()** for dynamic blending, and **relative color syntax** (2024) for deriving colors from existing values.
 
 The alpha channel (transparency) is available in all formats: hex (#RRGGBBAA), rgba(), hsla(). HSL excels for theme systems—keep hue constant while varying saturation and lightness for cohesive palettes.
 
@@ -31,11 +31,16 @@ The alpha channel (transparency) is available in all formats: hex (#RRGGBBAA), r
   
   /* Modern color-mix (2023+) */
   accent-color: color-mix(in srgb, #0066cc 75%, white);
+
+  /* Relative color syntax (2024+) */
+  --primary: #0066cc;
+  background: rgb(from var(--primary) r g b / 0.5);
+  border: hsl(from var(--primary) h s calc(l * 0.8));
 }
 ```
 
 ## When to Use
 
-Use HSL for design systems and themes, hex for quick prototyping, rgb for precise color matching. Modern browsers support oklch and color-mix() for advanced color manipulation.
+Use HSL for design systems and themes, hex for quick prototyping, rgb for precise color matching. Modern browsers support oklch, color-mix(), and relative color syntax for advanced color manipulation and dynamic theming.
 
 **Source**: [MDN: CSS Color Values](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)

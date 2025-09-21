@@ -11,7 +11,7 @@ author: instructor
 
 The transform property modifies element position, size, and shape without affecting document flow. **translate()** moves elements (better than position for performance), **scale()** resizes from the center point, **rotate()** spins around the transform origin, and **skew()** creates parallelogram distortions. Combine multiple transforms in order—sequence matters because each transform applies to the result of previous ones.
 
-Transform creates a new stacking context and establishes a containing block for fixed/absolute children. Use `transform-origin` to change the pivot point. Hardware acceleration kicks in automatically, making transforms ideal for animations. Individual transform properties (translate, rotate, scale) offer better granular control.
+Transform creates a new stacking context and establishes a containing block for fixed/absolute children. Use `transform-origin` to change the pivot point (default is "50% 50%" or center center). Hardware acceleration kicks in automatically, making transforms ideal for animations. Individual transform properties (translate, rotate, scale) offer better granular control.
 
 ## Example
 
