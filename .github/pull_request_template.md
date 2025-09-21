@@ -1,5 +1,14 @@
 # Note Card Submission
 
+## Critical Security Notice
+
+**⚠️ WARNING: Modifications to workflow files (.github/workflows/) require admin approval for security reasons.**
+
+GitHub Actions workflows can execute arbitrary code and access repository secrets. Unauthorized modifications pose significant security risks.
+
+- [ ] This PR does NOT modify any files in .github/workflows/
+- [ ] This PR only contains knowledge base cards or documentation
+
 ## Issue Reference
 
 Closes #
@@ -31,15 +40,17 @@ Closes #
 
 ### Source Verification
 
-- [ ] Source is from approved list (MDN, W3C, web.dev, A11Y Project, Can I Use, CSS-Tricks)
+- [ ] Source is from approved list (MDN, web.dev, Chrome DevTools, W3C, WHATWG, A11Y Project, WebAIM, Can I Use)
 - [ ] Source link is functional and relevant
 - [ ] Attribution is properly formatted
 
 ### Validation
 
-- [ ] Validation passes: `npm run validate cards/your-card.md`
+- [ ] Validation passes: `npm run validate cards/your-card.md` (includes both markdown linting and content validation)
 - [ ] No spelling or grammar errors
 - [ ] No broken links
+
+**Tip:** Run `npm run lint:md:fix` to auto-fix common markdown formatting issues
 
 ### Testing (if applicable)
 

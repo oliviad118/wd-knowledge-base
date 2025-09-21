@@ -1,0 +1,43 @@
+# CODEOWNERS - Security Protection for Repository
+#
+# This file defines code ownership rules to prevent unauthorized changes
+# to critical repository infrastructure and GitHub Actions workflows.
+#
+# Security rationale:
+# - GitHub Actions workflows can execute arbitrary code and access secrets
+# - Malicious workflow modifications could compromise the repository
+# - CODEOWNERS ensures admin review for sensitive file changes
+#
+# Required reviews: All specified files require @cynthiateeters approval
+
+# Protect entire .github directory (workflows, templates, configs)
+.github/ @cynthiateeters
+
+# Protect all workflow files anywhere in repository
+*.yml @cynthiateeters
+*.yaml @cynthiateeters
+
+# Protect this CODEOWNERS file itself from unauthorized modification
+.github/CODEOWNERS @cynthiateeters
+
+# Protect package management and dependencies
+package.json @cynthiateeters           # npm scripts can execute arbitrary code
+package-lock.json @cynthiateeters      # dependency lock prevents supply chain attacks
+.npmrc @cynthiateeters                 # npm configuration controls registry access
+*.npmrc @cynthiateeters                # npm config files anywhere in repo
+
+# Protect executable scripts and configurations
+*.sh @cynthiateeters                   # shell scripts have system access and execution rights
+scripts/ @cynthiateeters               # script directory contains validation and automation
+Dockerfile @cynthiateeters             # container definitions control execution environment
+docker-compose.yml @cynthiateeters     # orchestration files define service configurations
+docker-compose.yaml @cynthiateeters    # alternate docker compose file format
+
+# Protect validation and testing infrastructure
+validation/ @cynthiateeters            # validation logic controls quality gates
+jest.config.* @cynthiateeters          # test configuration can execute setup/teardown code
+.eslintrc* @cynthiateeters             # linting rules can include executable configurations
+
+# Note: This protection applies to pull requests but not direct pushes to main
+# Repository branch protection rules should also be configured to require
+# pull request reviews for the main branch

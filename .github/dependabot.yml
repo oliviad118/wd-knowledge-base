@@ -1,0 +1,48 @@
+# Dependabot Configuration
+#
+# This file configures automated dependency updates for security and maintenance.
+# Dependabot will create pull requests to update dependencies when new versions
+# are available, helping maintain repository security and keep dependencies current.
+#
+# Security benefits:
+# - Automatically updates GitHub Actions to patch security vulnerabilities
+# - Keeps npm dependencies current to avoid known security issues
+# - Provides visibility into dependency changes through labeled PRs
+
+version: 2
+updates:
+  # GitHub Actions dependency updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "security"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # npm dependency updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    versioning-strategy: "increase"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    # Ignore major version updates for stability
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
