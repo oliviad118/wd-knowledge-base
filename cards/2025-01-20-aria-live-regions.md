@@ -65,6 +65,9 @@ Role attributes provide semantic shortcuts: `role="status"` equals `aria-live="p
 
 ## When to Use
 
-Use live regions for form validation messages, save confirmations, loading states, and chat notifications. Choose polite for non-critical updates, assertive only for errors requiring immediate attention.
+- **Form validation feedback** - Announce validation errors without moving focus
+- **Status updates** - Notify users of loading states, save confirmations
+- **Dynamic content changes** - Alert users when page content updates
+- **Shopping cart updates** - Announce items added/removed from cart
 
 **Source**: [MDN: ARIA Live Regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
