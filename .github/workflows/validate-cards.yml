@@ -3,8 +3,6 @@ name: Validate Cards
 on:
   pull_request:
     types: [opened, edited, synchronize]
-    paths:
-      - 'cards/**/*.md'
 
 jobs:
   validate-cards:
@@ -153,8 +151,14 @@ jobs:
 
       - name: Validate changed cards
         id: validate
-        if: steps.changed-files.outputs.count > 0
         run: |
+          if [ "${{ steps.changed-files.outputs.count }}" = "0" ]; then
+            echo "No card files changed - validation passes"
+            echo "validation-results=no-cards-to-validate" >> $GITHUB_OUTPUT
+            echo "overall-success=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
           FILES="${{ steps.changed-files.outputs.files }}"
 
           if [ -z "$FILES" ]; then
@@ -240,11 +244,18 @@ jobs:
           } >> $GITHUB_OUTPUT
 
       - name: Comment on PR with results
-        if: steps.changed-files.outputs.count > 0
+        if: always()
         uses: actions/github-script@v8
         with:
           script: |
             const { owner, repo, number } = context.issue;
+
+            // Check if no cards were changed
+            if (`${{ steps.changed-files.outputs.count }}` === '0') {
+              console.log('No card files changed - no validation comment needed');
+              return;
+            }
+
             const passedFiles = `${{ steps.validate.outputs.passed-files }}`;
             const failedFiles = `${{ steps.validate.outputs.failed-files }}`;
             const errorDetails = `${{ steps.get-errors.outputs.error-details }}`;
