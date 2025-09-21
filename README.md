@@ -98,4 +98,3 @@ knowledge-base/
 **always refer to [CONTRIBUTING.md](CONTRIBUTING.md)**.
 
 **Last updated:** September 20, 2025
-# Test change to trigger workflow
