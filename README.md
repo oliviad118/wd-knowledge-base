@@ -8,19 +8,18 @@ This is a 5-week collaborative project where 8 collaborators will create 80 tech
 accessibility, performance, and responsive design topics.
 
 **Duration:** 5 weeks
-**Total cards:** 80 (10 per student, 2 per week)
+**Total cards:** 80 (10 per collaborator, 2 per week)
 **Topics:** Modern web development best practices
 
 ## 🚀 Quick Start
 
 1. **Fork this repository** to your GitHub account
-2. **Read [CONTRIBUTING.md](CONTRIBUTING.md)** for complete workflow instructions
-3. **Browse GitHub Issues** to find available topics
-4. **Follow the workflow** in CONTRIBUTING.md to create and submit your cards
+2. **Browse available issues** - See [ISSUES-GUIDE.md](ISSUES-GUIDE.md) for complete issue listings by difficulty
+3. **Claim an issue** by commenting "I'll take this one" on the GitHub issue
+4. **Read [CONTRIBUTING.md](CONTRIBUTING.md)** for complete workflow instructions
+5. **Create and submit your card** following the format requirements
 
 ## 📝 Card Format
-
-See [CONTRIBUTING.md](CONTRIBUTING.md#card-format-specification) for complete format requirements.
 
 **Quick Reference:**
 
@@ -28,6 +27,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md#card-format-specification) for complete fo
 - Location: `cards/` directory
 - Length: 75-250 words
 - Required sections: Explanation, "When to Use", Source link
+
+See [CONTRIBUTING.md](CONTRIBUTING.md#card-format-specification) for complete format requirements.
 
 ## ✅ Before You Submit
 
@@ -38,28 +39,38 @@ npm install
 npm run validate cards/your-card-name.md
 ```
 
+## 🎯 Finding Issues
+
+### Two sources for card topics
+
+1. **GitHub Issues** - Pre-created topics organized by difficulty
+   - 🟢 **16 Starter Level** - Perfect for your first cards
+   - 🔵 **41 Intermediate Level** - Build on fundamentals
+   - 🟣 **23 Advanced Level** - Challenge yourself
+   - **See [ISSUES-GUIDE.md](ISSUES-GUIDE.md) for complete listings and selection guidance**
+
+2. **[CSS Secret Sauce](https://nerdy.dev/cascading-secret-sauce)** - Create your own issue
+   - Browse modern CSS features not yet covered
+   - Maximum 2 Secret Sauce issues per week
+   - **See [CREATE-ISSUE-GUIDE.md](CREATE-ISSUE-GUIDE.md) for step-by-step instructions**
+
+### 💡 **New to the project?** Start with [ISSUES-GUIDE.md](ISSUES-GUIDE.md) to browse all available topics by difficulty level
+
 ## 📁 Repository Structure
 
 ```text
 knowledge-base/
 ├── README.md                    # You are here
+├── ISSUES-GUIDE.md              # Browse all issues by difficulty
 ├── CONTRIBUTING.md              # Complete workflow & requirements
 ├── CREATE-ISSUE-GUIDE.md        # How to create Secret Sauce issues
 ├── cards/                       # Cards go here
 └── scripts/validate-card.js     # Validation tool
 ```
 
-## 🎯 Finding Issues
-
-Two sources for card topics:
-
-1. **GitHub Issues** - Pre-created topics, first-come first-served
-2. **[CSS Secret Sauce](https://nerdy.dev/cascading-secret-sauce)** - Create your own issue
-
-For Secret Sauce issues, see [CREATE-ISSUE-GUIDE.md](CREATE-ISSUE-GUIDE.md).
-
 ## 📚 Resources
 
+- **Issue Selection:** [ISSUES-GUIDE.md](ISSUES-GUIDE.md) - Browse all 80 topics by difficulty
 - **Workflow & Requirements:** [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Secret Sauce Issues:** [CREATE-ISSUE-GUIDE.md](CREATE-ISSUE-GUIDE.md)
 - **Examples:** Check the `cards/` directory
@@ -75,10 +86,11 @@ For Secret Sauce issues, see [CREATE-ISSUE-GUIDE.md](CREATE-ISSUE-GUIDE.md).
 
 ## 🆘 Getting Help
 
-- Questions? Comment on the GitHub issue
-- Technical problems? Contact instructor
-- Workflow questions? See [CONTRIBUTING.md](CONTRIBUTING.md)
-- Examples needed? Check `cards/` directory
+- **Choosing topics?** See [ISSUES-GUIDE.md](ISSUES-GUIDE.md) for guidance by difficulty level
+- **Questions about a topic?** Comment on the GitHub issue
+- **Technical problems?** Contact instructor
+- **Workflow questions?** See [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Need examples?** Check existing cards in `cards/` directory
 
 ---
 

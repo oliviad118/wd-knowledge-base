@@ -32,12 +32,12 @@
   {
     "name": "assigned",
     "color": "FFC107",
-    "description": "Student claimed, not yet started"
+    "description": "Collaborator claimed, not yet started"
   },
   {
     "name": "in-progress",
     "color": "17A2B8",
-    "description": "Student actively working on this card"
+    "description": "Collaborator actively working on this card"
   },
   {
     "name": "ready-for-review",

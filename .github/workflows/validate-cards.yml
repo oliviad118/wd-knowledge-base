@@ -67,7 +67,7 @@ jobs:
                   body: `## ℹ️ Instructor Deletions Detected\n\nThe following card files were deleted:\n${deletedList}\n\n*Note: This is permitted for instructor accounts.*`
                 });
               } else {
-                console.log('❌ Student deletions detected - failing check');
+                console.log('❌ Collaborator deletions detected - failing check');
                 const deletedList = deletedCardFiles.map(f => `- \`${f.filename}\``).join('\n');
 
                 await github.rest.issues.createComment({
@@ -135,7 +135,7 @@ jobs:
           # Validate each file
           for file in $FILES; do
             echo "Validating $file..."
-            if node scripts/validate-card.js "$file"; then
+            if npm run validate "$file"; then
               echo "✅ $file" >> "$PASSED_FILE"
               echo "PASSED: $file"
             else
@@ -182,9 +182,9 @@ jobs:
 
           for file in $FILES; do
             echo "Getting detailed errors for $file..."
-            if ! node scripts/validate-card.js "$file" 2>&1; then
+            if ! npm run validate "$file" 2>&1; then
               # Capture the validation output for this file
-              VALIDATION_OUTPUT=$(node scripts/validate-card.js "$file" 2>&1 || true)
+              VALIDATION_OUTPUT=$(npm run validate "$file" 2>&1 || true)
               # Extract meaningful error lines (skip ANSI color codes and generic messages)
               CLEAN_OUTPUT=$(echo "$VALIDATION_OUTPUT" | sed 's/\x1b\[[0-9;]*m//g' | grep -E "(Missing|Word count|Invalid|Error)" || echo "Validation failed")
               ERROR_DETAILS="${ERROR_DETAILS}
