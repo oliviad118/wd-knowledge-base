@@ -3,7 +3,7 @@ title: CSS currentColor keyword: Dynamic color inheritance
 date: 2025-09-25
 category: visual effects 
 difficulty: starter
-source: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model
+source: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword
 author: Sahar Naz
 ---
 
