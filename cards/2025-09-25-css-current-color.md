@@ -1,5 +1,5 @@
 ---
-title: CSS currentColor keyword: Dynamic color inheritance
+title: "CSS currentColor keyword: Dynamic color inheritance"
 date: 2025-09-25
 category: visual effects 
 difficulty: starter
