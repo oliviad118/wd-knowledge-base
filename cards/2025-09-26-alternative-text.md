@@ -9,7 +9,7 @@ author: Emily Lubonty
 
 # Alternative Text: Writing Effective Image Descriptions
 
-Text alternatives are essential to those using screen readers. When images are viewed by a screen reader, the file name is read instead of what is occuring in the image. `Alt` attributes are crucial alongside descriptive file names. An `alt` attribute can provide a visual description of what the image is actually conveying. When using an `alt` attribute, the description should be short and to the point. Effective image descriptions should include relevant details regarding the topic. If the text surrounding the image has information not included in the image itself, then the information does not need to be included in the `alt` attribute. Empty `alt` attributes can be used if the image is for visual decoration or haas no purpose.
+Text alternatives are essential to those using screen readers. When images are viewed by a screen reader, the file name is read instead of what is occuring in the image. `Alt` attributes are crucial alongside descriptive file names. An `alt` attribute can provide a visual description of what the image is actually conveying. When using an `alt` attribute, the description should be short and to the point. Effective image descriptions should include relevant details regarding the topic. If the text surrounding the image has information not included in the image itself, then the information does not need to be included in the `alt` attribute. Empty `alt` attributes can be used if the image is for visual decoration or has no purpose.
 
 ## When to use
 
