@@ -8,6 +8,7 @@ author: Sahar Naz
 ---
 
 ## Dark Mode Implementation - prefers-color-scheme and Theme Switching
+
 Dark mode gives users a darker color scheme that's easier on the eyes, especially in low light. There are two main ways to implement it:
 
 **1. `prefers-color-scheme`**: Automatically detects if the user's device is set to dark mode
@@ -19,6 +20,7 @@ Think of it like this: `prefers-color-scheme` is like automatically dimming ligh
 ## Code examples
 
 **Auto dark mode:**
+
 ```css
 /* Light mode (default) */
 body {
@@ -36,6 +38,7 @@ body {
 ```
 
 **Toggle button:**
+
 ```html
 <button onclick="toggleDark()">Toggle Dark Mode</button>
 ```
@@ -54,21 +57,24 @@ function toggleDark() {
 ```
 
 ## When to use
+
 **`prefers-color-scheme`:**
+
 - You want to respect user's system preferences
 - Building simple websites without toggle buttons
 - You want automatic dark mode that "just works"
 
 **manual theme switching:**
+
 - Users need control over the theme
 - Building apps where theme preference should persist
 - You want to offer multiple theme options (not just light/dark)
 
 **both together:**
+
 - You want the best user experience
 - Default to system preference, but let users override it
 - Building professional web applications
-
 
 **Source**: [MDN Web Docs - prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
 
