@@ -3,7 +3,7 @@ title: "CSS Display Property: block, inline, inline-block, and none"
 date: 2025-10-03
 category: CSS Core 
 difficulty: starter
-source: 
+source: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 author: Sahar Naz
 ---
 
@@ -27,31 +27,41 @@ author: Sahar Naz
 
 ## Code examples
 ```html
-<!-- Block elements (take full width, new line) -->
-<div style="display: block; background: lightblue;">
-  Block element - takes full width
-</div>
-<div style="display: block; background: lightgreen;">
-  Another block - starts on new line
-</div>
+<div>I'm a block element</div>
+<div>I'm also a block element</div>
 
-<!-- Inline elements (only width needed, same line) -->
-<span style="display: inline; background: yellow;">Inline 1</span>
-<span style="display: inline; background: pink;">Inline 2</span>
-<span style="display: inline; background: orange;">Inline 3</span>
+<span>I'm inline</span>
+<span>Me too!</span>
+<span>We're all on the same line</span>
 
-<!-- Inline-block (same line but can set width/height) -->
-<div style="display: inline-block; width: 100px; height: 50px; background: purple;">Box 1</div>
-<div style="display: inline-block; width: 100px; height: 50px; background: red;">Box 2</div>
+<div style="display: inline-block; width: 80px; background: pink;">Box 1</div>
+<div style="display: inline-block; width: 80px; background: lightblue;">Box 2</div>
 
-<!-- None (completely hidden) -->
-<div style="display: none;">
-  You can't see me!
-</div>
+<div style="display: none;">You can't see me!</div>
+<div>But you can see me!</div>
 ```
 
 ## When to use
+**Use `display: block` when:**
+- You want elements to stack vertically
+- Making navigation menus
+- Creating page sections
 
+**Use `display: inline` when:**
+- Styling text within paragraphs
+- Small elements that should flow with text
+- Links within sentences
 
-**Source**: [description](url)
-**Also referenced**: [description](url)
+**Use `display: inline-block` when:**
+- Creating button rows
+- Making image galleries
+- Navigation items that need specific sizing
+
+**Use `display: none` when:**
+- Hiding elements with JavaScript
+- Creating show/hide functionality
+- Responsive design (hide on mobile)
+
+**Source**: [MDN Web Docs - Display Property](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
+
+**Also referenced**: [CSS-Tricks - Display Property](https://css-tricks.com/almanac/properties/d/display/)
