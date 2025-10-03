@@ -7,25 +7,31 @@ source: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 author: Sahar Naz
 ---
 
-## CSS Display Property - block, inline, inline-block, and none 
+## CSS Display Property - block, inline, inline-block, and none
+
 **Block elements:**
+
 - Take up the full width available
 - Start on a new line
 - Examples: `<div>`, `<h1>`, `<p>`
 
 **Inline elements:**
+
 - Only take up as much width as needed
 - Stay on the same line with other elements  
 - Examples: `<span>`, `<a>`, `<strong>`
 
 **Inline-block elements:**
+
 - Best of both worlds - stay inline but can have width/height
 - Useful for buttons, navigation items
 
 **None:**
+
 - Completely hides the element from the page
 
 ## Code examples
+
 ```html
 <div>I'm a block element</div>
 <div>I'm also a block element</div>
@@ -42,22 +48,27 @@ author: Sahar Naz
 ```
 
 ## When to use
+
 **Use `display: block` when:**
+
 - You want elements to stack vertically
 - Making navigation menus
 - Creating page sections
 
 **Use `display: inline` when:**
+
 - Styling text within paragraphs
 - Small elements that should flow with text
 - Links within sentences
 
 **Use `display: inline-block` when:**
+
 - Creating button rows
 - Making image galleries
 - Navigation items that need specific sizing
 
 **Use `display: none` when:**
+
 - Hiding elements with JavaScript
 - Creating show/hide functionality
 - Responsive design (hide on mobile)
