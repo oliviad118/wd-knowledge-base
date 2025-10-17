@@ -7,7 +7,7 @@ source: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/la
 author: Sahar Naz
 ---
 
-## Skip Links and Landmarks: Improving Navigation Efficiency
+## Skip Links and Landmarks - Improving Navigation Efficiency
 
 Skip links and landmarks help keyboard and screen reader users move quickly to important parts of a page (like the main content), improving navigation speed and usability.
 
