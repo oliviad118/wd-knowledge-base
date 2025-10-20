@@ -33,6 +33,7 @@ Inheritance is the process where an element inherits properties from other eleme
 
 ## When to use
 -When you want to simplify your workload
--when 
+-To avoid repeating code
+-To keep consistency 
 
 **Source**: [MDN: CSS Inheritance](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Inheritance)
