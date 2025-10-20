@@ -12,6 +12,7 @@ author: William Harvey
 @supports is a rule in CSS that makes sure that a browser knows how to utilize certain features before using them, think of it as a checklist, and if something doesn't meet a requirement, it is ignored and falls back on a set element. Here's an example, lets say you want to display a picture that will play a video when you hover over it, but some browsers might not support this feature. So instead of coding it to make it to where it'll try to play the video no matter what even if the element might break the website, you can add an @supports rule to make it to where it'll not try to make the video play while hovering over it if it's not supported
 
 ## Example
+
 ```css
 @supports (property: value) {
   /* CSS rules that will only apply if supported */
@@ -35,9 +36,9 @@ author: William Harvey
 ```
 
 ## When to use
+
 -If you don't want your website to potentially break
 -To organize and optimize your code better
 -To try experimental features that are supported on some websites, but not others
-
 
 **Source**: [MDN: @supports](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection)
